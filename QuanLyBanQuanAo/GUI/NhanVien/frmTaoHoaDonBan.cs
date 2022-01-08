@@ -128,12 +128,16 @@ namespace GUI.NhanVien
         private void btnSua_Click(object sender, EventArgs e)
         {
             HoaDonBLL.Instance.CapNhatChiTietHoaDon(dgvChiTietHoaDon, Convert.ToInt32(lblMaSP.Text), Convert.ToInt32(cbxSize.SelectedValue), Convert.ToInt32(nudSoLuong.Value), 1);
+            CapNhatTienHang();
+            dgvDanhSachSanPham.ClearSelection(); 
             HienThiMacDinh();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             HoaDonBLL.Instance.CapNhatChiTietHoaDon(dgvChiTietHoaDon, Convert.ToInt32(lblMaSP.Text), Convert.ToInt32(cbxSize.SelectedValue), 0, 2);
+            CapNhatTienHang();
+            dgvDanhSachSanPham.ClearSelection();
             HienThiMacDinh();
         }
 
