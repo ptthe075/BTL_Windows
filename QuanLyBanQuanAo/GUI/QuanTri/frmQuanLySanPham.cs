@@ -44,7 +44,7 @@ namespace GUI.QuanTri
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtTenSP.Text.Trim().Length == 0)
+            /*if (txtTenSP.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Tên sản phẩm không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -82,7 +82,7 @@ namespace GUI.QuanTri
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
         }
 
         private void HienThiMacDinh(bool tt)
