@@ -46,5 +46,11 @@ namespace GUI
             new QuanTri.frmQuanLyKhuyenMai().ShowDialog();
             this.Close();
         }
+
+        private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new QuanTri.frmQuanLySanPham().ShowDialog();
+            this.Close();
+        }
     }
 }

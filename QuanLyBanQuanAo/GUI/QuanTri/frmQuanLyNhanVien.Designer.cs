@@ -35,6 +35,12 @@ namespace GUI.QuanTri
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.MaNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenDangNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
@@ -57,12 +63,8 @@ namespace GUI.QuanTri
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.MaNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenDangNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtLuongCoBanNgay = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
@@ -73,7 +75,7 @@ namespace GUI.QuanTri
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 220);
+            this.groupBox1.Location = new System.Drawing.Point(12, 251);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(616, 258);
             this.groupBox1.TabIndex = 4;
@@ -114,6 +116,59 @@ namespace GUI.QuanTri
             this.dgvNhanVien.Size = new System.Drawing.Size(604, 183);
             this.dgvNhanVien.TabIndex = 0;
             this.dgvNhanVien.SelectionChanged += new System.EventHandler(this.dgvTaiKhoan_SelectionChanged);
+            // 
+            // MaNhanVien
+            // 
+            this.MaNhanVien.DataPropertyName = "MaNhanVien";
+            this.MaNhanVien.HeaderText = "Mã NV";
+            this.MaNhanVien.Name = "MaNhanVien";
+            this.MaNhanVien.ReadOnly = true;
+            this.MaNhanVien.Width = 65;
+            // 
+            // HoTen
+            // 
+            this.HoTen.DataPropertyName = "HoTen";
+            this.HoTen.HeaderText = "Họ và tên";
+            this.HoTen.Name = "HoTen";
+            this.HoTen.ReadOnly = true;
+            this.HoTen.Width = 140;
+            // 
+            // TenDangNhap
+            // 
+            this.TenDangNhap.DataPropertyName = "TenDangNhap";
+            this.TenDangNhap.HeaderText = "Tên đăng nhập";
+            this.TenDangNhap.Name = "TenDangNhap";
+            this.TenDangNhap.ReadOnly = true;
+            this.TenDangNhap.Width = 105;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.DataPropertyName = "NgaySinh";
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            this.NgaySinh.DefaultCellStyle = dataGridViewCellStyle1;
+            this.NgaySinh.HeaderText = "Ngày sinh";
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            this.NgaySinh.Width = 80;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.DataPropertyName = "GioiTinh";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.GioiTinh.DefaultCellStyle = dataGridViewCellStyle2;
+            this.GioiTinh.HeaderText = "Giới tính";
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            this.GioiTinh.Width = 70;
+            // 
+            // SoDT
+            // 
+            this.SoDT.DataPropertyName = "SoDienThoai";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.SoDT.DefaultCellStyle = dataGridViewCellStyle3;
+            this.SoDT.HeaderText = "Số điện thoại";
+            this.SoDT.Name = "SoDT";
+            this.SoDT.ReadOnly = true;
             // 
             // panel1
             // 
@@ -299,6 +354,8 @@ namespace GUI.QuanTri
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtLuongCoBanNgay);
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.radNu);
             this.groupBox2.Controls.Add(this.radNam);
             this.groupBox2.Controls.Add(this.dtpNgaySinh);
@@ -318,7 +375,7 @@ namespace GUI.QuanTri
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(12, 39);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(616, 175);
+            this.groupBox2.Size = new System.Drawing.Size(616, 206);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin nhân viên";
@@ -333,64 +390,27 @@ namespace GUI.QuanTri
             this.label1.Text = "QUẢN LÝ NHÂN VIÊN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MaNhanVien
+            // txtLuongCoBanNgay
             // 
-            this.MaNhanVien.DataPropertyName = "MaNhanVien";
-            this.MaNhanVien.HeaderText = "Mã NV";
-            this.MaNhanVien.Name = "MaNhanVien";
-            this.MaNhanVien.ReadOnly = true;
-            this.MaNhanVien.Width = 65;
+            this.txtLuongCoBanNgay.Location = new System.Drawing.Point(114, 170);
+            this.txtLuongCoBanNgay.Name = "txtLuongCoBanNgay";
+            this.txtLuongCoBanNgay.Size = new System.Drawing.Size(188, 20);
+            this.txtLuongCoBanNgay.TabIndex = 14;
             // 
-            // HoTen
+            // label9
             // 
-            this.HoTen.DataPropertyName = "HoTen";
-            this.HoTen.HeaderText = "Họ và tên";
-            this.HoTen.Name = "HoTen";
-            this.HoTen.ReadOnly = true;
-            this.HoTen.Width = 140;
-            // 
-            // TenDangNhap
-            // 
-            this.TenDangNhap.DataPropertyName = "TenDangNhap";
-            this.TenDangNhap.HeaderText = "Tên đăng nhập";
-            this.TenDangNhap.Name = "TenDangNhap";
-            this.TenDangNhap.ReadOnly = true;
-            this.TenDangNhap.Width = 105;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.DataPropertyName = "NgaySinh";
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            this.NgaySinh.DefaultCellStyle = dataGridViewCellStyle1;
-            this.NgaySinh.HeaderText = "Ngày sinh";
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            this.NgaySinh.Width = 80;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.DataPropertyName = "GioiTinh";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.GioiTinh.DefaultCellStyle = dataGridViewCellStyle2;
-            this.GioiTinh.HeaderText = "Giới tính";
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            this.GioiTinh.Width = 70;
-            // 
-            // SoDT
-            // 
-            this.SoDT.DataPropertyName = "SoDienThoai";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.SoDT.DefaultCellStyle = dataGridViewCellStyle3;
-            this.SoDT.HeaderText = "Số điện thoại";
-            this.SoDT.Name = "SoDT";
-            this.SoDT.ReadOnly = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 173);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 13);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Lương/Ngày";
             // 
             // frmQuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 490);
+            this.ClientSize = new System.Drawing.Size(640, 518);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
@@ -442,5 +462,7 @@ namespace GUI.QuanTri
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDT;
+        private System.Windows.Forms.TextBox txtLuongCoBanNgay;
+        private System.Windows.Forms.Label label9;
     }
 }

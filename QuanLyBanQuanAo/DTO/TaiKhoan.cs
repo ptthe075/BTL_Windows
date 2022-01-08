@@ -26,6 +26,8 @@ namespace DTO
 
         public bool? LoaiTaiKhoan { get; set; }
 
+        public DateTime? ThoiGianDangNhapCuoi { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
 

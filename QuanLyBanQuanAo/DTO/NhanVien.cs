@@ -35,6 +35,8 @@ namespace DTO
         [StringLength(500)]
         public string DiaChi { get; set; }
 
+        public int? LuongCoBanNgay { get; set; }
+
         public int? IdTK { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -34,12 +34,12 @@ namespace GUI
             this.tàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loạiSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.khuyếnMạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nhậpHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKếHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêDoanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.khuyếnMạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +86,14 @@ namespace GUI
             this.sảnPhẩmToolStripMenuItem.Name = "sảnPhẩmToolStripMenuItem";
             this.sảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sảnPhẩmToolStripMenuItem.Text = "Sản phẩm";
+            this.sảnPhẩmToolStripMenuItem.Click += new System.EventHandler(this.sảnPhẩmToolStripMenuItem_Click);
+            // 
+            // khuyếnMạiToolStripMenuItem
+            // 
+            this.khuyếnMạiToolStripMenuItem.Name = "khuyếnMạiToolStripMenuItem";
+            this.khuyếnMạiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.khuyếnMạiToolStripMenuItem.Text = "Khuyến mại";
+            this.khuyếnMạiToolStripMenuItem.Click += new System.EventHandler(this.khuyếnMạiToolStripMenuItem_Click);
             // 
             // nhậpHàngToolStripMenuItem
             // 
@@ -111,7 +119,7 @@ namespace GUI
             // thốngKêDoanhThuToolStripMenuItem
             // 
             this.thốngKêDoanhThuToolStripMenuItem.Name = "thốngKêDoanhThuToolStripMenuItem";
-            this.thốngKêDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thốngKêDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.thốngKêDoanhThuToolStripMenuItem.Text = "Doanh thu";
             this.thốngKêDoanhThuToolStripMenuItem.Click += new System.EventHandler(this.thốngKêDoanhThuToolStripMenuItem_Click);
             // 
@@ -121,13 +129,6 @@ namespace GUI
             this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
-            // 
-            // khuyếnMạiToolStripMenuItem
-            // 
-            this.khuyếnMạiToolStripMenuItem.Name = "khuyếnMạiToolStripMenuItem";
-            this.khuyếnMạiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.khuyếnMạiToolStripMenuItem.Text = "Khuyến mại";
-            this.khuyếnMạiToolStripMenuItem.Click += new System.EventHandler(this.khuyếnMạiToolStripMenuItem_Click);
             // 
             // frmQuanTri
             // 
