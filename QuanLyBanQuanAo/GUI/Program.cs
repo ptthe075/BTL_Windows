@@ -22,9 +22,9 @@ namespace GUI
 
             //Application.Run(new QuanTri.frmQuanLyNhanVien());
             //Application.Run(new QuanTri.frmXemThongTinHoaDonBan());
-            //Application.Run(new NhanVien.frmTaoHoaDonBan());
+            Application.Run(new NhanVien.frmTaoHoaDonBan());
             //Application.Run(new NhanVien.frmInHoaDonBan("HDB-070122-006", 50000, false));
-            Application.Run(new frmDangNhap());
+            //Application.Run(new frmDangNhap());
         }
     }
 }
