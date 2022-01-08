@@ -15,10 +15,17 @@ namespace GUI.NhanVien
 {
     public partial class frmTaoHoaDonBan : Form
     {
+        string tenDangNhap;
         public frmTaoHoaDonBan()
         {
             InitializeComponent();
         }
+        public frmTaoHoaDonBan(string tenDangNhap)
+        {
+            this.tenDangNhap = tenDangNhap;
+            InitializeComponent();
+        }
+
 
         private void frmTaoHoaDonBan_Load(object sender, EventArgs e)
         {
@@ -174,7 +181,7 @@ namespace GUI.NhanVien
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if (HoaDonBLL.Instance.ThanhToanHoaDonBan(lblMaHoaDon.Text))
+            if (HoaDonBLL.Instance.ThanhToanHoaDonBan(lblMaHoaDon.Text, tenDangNhap))
             {
                 MessageBox.Show("Thanh toán thành công thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
@@ -193,6 +200,7 @@ namespace GUI.NhanVien
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
+            new frmNhanVien(tenDangNhap).ShowDialog();
             Close();
         }
 

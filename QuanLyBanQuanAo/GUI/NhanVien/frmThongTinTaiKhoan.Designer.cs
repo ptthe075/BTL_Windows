@@ -168,6 +168,7 @@ namespace GUI
             this.btnTroVe.TabIndex = 8;
             this.btnTroVe.Text = "Trở lại";
             this.btnTroVe.UseVisualStyleBackColor = true;
+            this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
             // 
             // btnSua
             // 

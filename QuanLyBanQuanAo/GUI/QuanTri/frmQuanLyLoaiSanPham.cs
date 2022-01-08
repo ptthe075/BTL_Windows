@@ -107,5 +107,11 @@ namespace GUI
             List<LoaiSanPham_SoLuong> danhSachLoaiSanPham = LoaiSanPhamBLL.Instance.TimLoaiSanPham(txtTenLoaiSanPham.Text);
             dtgvDanhSachLoaiSanPham.DataSource = danhSachLoaiSanPham;
         }
+
+        private void btnTroLai_Click(object sender, EventArgs e)
+        {
+            new frmQuanTri().ShowDialog();
+            this.Close();
+        }
     }
 }

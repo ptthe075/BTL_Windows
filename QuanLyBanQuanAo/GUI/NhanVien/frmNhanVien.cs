@@ -25,5 +25,16 @@ namespace GUI
             new frmThongTinTaiKhoan(tenDangNhap).ShowDialog();
             Close();
         }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmDangNhap().ShowDialog();
+            Close();
+        }
+
+        private void tạoHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new NhanVien.frmTaoHoaDonBan(tenDangNhap).ShowDialog();
+        }
     }
 }

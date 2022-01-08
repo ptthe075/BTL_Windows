@@ -43,7 +43,7 @@ namespace GUI
             this.lblTenDangNhap.Location = new System.Drawing.Point(22, 40);
             this.lblTenDangNhap.Name = "lblTenDangNhap";
             this.lblTenDangNhap.Size = new System.Drawing.Size(84, 13);
-            this.lblTenDangNhap.TabIndex = 0;
+            this.lblTenDangNhap.TabIndex = 4;
             this.lblTenDangNhap.Text = "Tên đăng nhâp:";
             // 
             // lblMatKhau
@@ -52,7 +52,7 @@ namespace GUI
             this.lblMatKhau.Location = new System.Drawing.Point(22, 92);
             this.lblMatKhau.Name = "lblMatKhau";
             this.lblMatKhau.Size = new System.Drawing.Size(55, 13);
-            this.lblMatKhau.TabIndex = 1;
+            this.lblMatKhau.TabIndex = 5;
             this.lblMatKhau.Text = "Mật khẩu:";
             // 
             // txtMatKhau
@@ -61,21 +61,21 @@ namespace GUI
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(176, 20);
-            this.txtMatKhau.TabIndex = 2;
+            this.txtMatKhau.TabIndex = 1;
             // 
             // txtTenDangNhap
             // 
             this.txtTenDangNhap.Location = new System.Drawing.Point(121, 37);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(176, 20);
-            this.txtTenDangNhap.TabIndex = 3;
+            this.txtTenDangNhap.TabIndex = 0;
             // 
             // btnDangNhap
             // 
             this.btnDangNhap.Location = new System.Drawing.Point(63, 134);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(75, 23);
-            this.btnDangNhap.TabIndex = 4;
+            this.btnDangNhap.TabIndex = 2;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
@@ -85,7 +85,7 @@ namespace GUI
             this.btnThoat.Location = new System.Drawing.Point(197, 134);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
-            this.btnThoat.TabIndex = 5;
+            this.btnThoat.TabIndex = 3;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);

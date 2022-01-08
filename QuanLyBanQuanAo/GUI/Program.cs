@@ -16,14 +16,15 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmDangNhap());
+            //Application.Run(new QuanTri.frmThongKe());
 
             //Application.Run(new frmQuanLyLoaiSanPham());
 
             //Application.Run(new QuanTri.frmQuanLyNhanVien());
             //Application.Run(new QuanTri.frmXemThongTinHoaDonBan());
             //Application.Run(new NhanVien.frmTaoHoaDonBan());
-            Application.Run(new NhanVien.frmInHoaDonBan("HDB-070122-006", 50000, false));
+            //Application.Run(new NhanVien.frmInHoaDonBan("HDB-070122-006", 50000, false));
+            Application.Run(new frmDangNhap());
         }
     }
 }

@@ -83,6 +83,7 @@ namespace GUI.NhanVien
             this.btnTroLai.TabIndex = 4;
             this.btnTroLai.Text = "Trở lại";
             this.btnTroLai.UseVisualStyleBackColor = true;
+            this.btnTroLai.Click += new System.EventHandler(this.btnTroLai_Click);
             // 
             // txtMatKhau
             // 

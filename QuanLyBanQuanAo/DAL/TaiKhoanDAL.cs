@@ -46,6 +46,11 @@ namespace DAL
             
         }
 
+        public bool DaDangNhapHomNay(string tenDangNhap)
+        {
+            return true;
+        }
+
         public TaiKhoan LayThongTinTaiKhoan(string tenDangNhap)
         {
             var taiKhoan = db.TaiKhoans.SingleOrDefault(tk => tk.TenDangNhap == tenDangNhap);

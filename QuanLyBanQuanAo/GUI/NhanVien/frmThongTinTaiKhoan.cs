@@ -60,12 +60,18 @@ namespace GUI
             dtpNgaySinh.Text = nhanVien.NgaySinh.ToString();
             txtDiaChi.Text = nhanVien.DiaChi;
             txtSoDienThoai.Text = nhanVien.SoDienThoai;
-            txtLuongThangNay.Text = (luong.SoNgayCong*luong.LuongCoBanNgay).ToString() + "VND";
+            txtLuongThangNay.Text = (luong.SoNgayCong*luong.LuongCoBanNgay+luong.Thuong).ToString() + "VND";
         }
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
             new frmDoiMatKhauNhanVien(tenDangNhap).ShowDialog();
+            this.Close();
+        }
+
+        private void btnTroVe_Click(object sender, EventArgs e)
+        {
+            new frmNhanVien(tenDangNhap).ShowDialog();
             this.Close();
         }
     }

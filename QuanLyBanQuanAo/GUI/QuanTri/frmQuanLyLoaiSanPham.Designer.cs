@@ -160,6 +160,7 @@ namespace GUI
             this.btnTroLai.TabIndex = 8;
             this.btnTroLai.Text = "Trở lại";
             this.btnTroLai.UseVisualStyleBackColor = true;
+            this.btnTroLai.Click += new System.EventHandler(this.btnTroLai_Click);
             // 
             // frmQuanLyLoaiSanPham
             // 

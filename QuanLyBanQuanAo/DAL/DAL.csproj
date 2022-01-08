@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HoaDonDAL.cs" />
+    <Compile Include="KhuyenMaiDAL.cs" />
     <Compile Include="KichThuocDAL.cs" />
     <Compile Include="LoaiSanPhamDAL.cs" />
     <Compile Include="LuongDAL.cs" />

@@ -256,9 +256,9 @@ namespace BLL
             tienHang = Convert.ToDecimal(chiTietHoaDon.Sum(cthd => cthd.SoLuong * cthd.SanPham.DonGiaBan));
         }
 
-        public bool ThanhToanHoaDonBan(string maHD)
+        public bool ThanhToanHoaDonBan(string maHD, string tenDangNhap)
         {
-            TaiKhoan tk = TaiKhoanDAL.Instance.LayTaiKhoan("The");
+            TaiKhoan tk = TaiKhoanDAL.Instance.LayTaiKhoan(tenDangNhap);
             HoaDon hoaDon = new HoaDon()
             {
                 MaHoaDon = maHD,
@@ -298,6 +298,31 @@ namespace BLL
             {
                 return false;
             }
+        }
+
+        public List<SanPham_SoLuong> SanPhamBanChayNhat(int thang, int nam)
+        {
+            return HoaDonDAL.Instance.SanPhamBanChayNhat(thang, nam);
+        }
+
+        public object LayDanhSachHoaDonBan(int thang, int nam)
+        {
+            return HoaDonDAL.Instance.LayDanhSachHoaDonBan(thang, nam);
+        }
+
+        public List<HoaDon> LayDanhSachHoaDonNhap(int thang, int nam)
+        {
+            return HoaDonDAL.Instance.LayDanhSachHoaDonNhap(thang, nam);
+        }
+
+        public int LayTongTienBan(int thang, int nam)
+        {
+            return HoaDonDAL.Instance.LayTongTienBan(thang, nam);
+        }
+
+        public int LayTongTienNhap(int thang, int nam)
+        {
+            return HoaDonDAL.Instance.LayTongTienNhap(thang, nam);
         }
     }
 }
