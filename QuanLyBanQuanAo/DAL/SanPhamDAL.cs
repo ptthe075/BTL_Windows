@@ -49,5 +49,23 @@ namespace DAL
                 return db.SanPhams.Where(sp => sp.TenSanPham.ToLower().Contains(tenSP.ToLower().Trim()) && sp.LoaiSanPham.MaLoaiSanPham == maLoaiSP).ToList();
             }
         }
+
+        public List<SanPham> LayTheoTenSP(string tenSP)
+        {
+            return db.SanPhams.Where(sp => sp.TenSanPham.ToLower().Contains(tenSP.ToLower().Trim())).ToList();
+        }
+
+        public void CapNhatSanPham(SanPham sp, int tt)
+        {
+            if (tt == 0)
+            {
+                db.SanPhams.Add(sp);
+            }
+            if (tt == 1)
+            {
+                db.SanPhams.Remove(sp);
+            }
+            db.SaveChanges();
+        }
     }
 }

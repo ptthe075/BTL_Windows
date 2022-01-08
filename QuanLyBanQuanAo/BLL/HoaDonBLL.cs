@@ -29,6 +29,11 @@ namespace BLL
             }
         }
 
+        public void HienThiDanhSach(DataGridView dgvSanPham, object p1, object p2)
+        {
+            throw new NotImplementedException();
+        }
+
         public void HienThiDanhSachHoaDonBan(DataGridView dgvHoaDon, Label lblTongHD, Label lblTongTien, List<object> tuKhoa, int status)
         {
             List<HoaDon> dsHD;

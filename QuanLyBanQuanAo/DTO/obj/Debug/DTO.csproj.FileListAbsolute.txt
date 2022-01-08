@@ -21,3 +21,14 @@ D:\MONHOC\WINDOWS\BTL\BTL_Windows-dang\QuanLyBanQuanAo\DTO\obj\Debug\DTO.exe
 D:\MONHOC\WINDOWS\BTL\BTL_Windows-dang\QuanLyBanQuanAo\DTO\obj\Debug\DTO.pdb
 D:\MONHOC\WINDOWS\BTL\BTL_Windows-dang\QuanLyBanQuanAo\DTO\obj\Debug\DTO.csproj.CopyComplete
 D:\MONHOC\WINDOWS\BTL\BTL_Windows-dang\QuanLyBanQuanAo\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\BTL_Windows\QuanLyBanQuanAo\DTO\bin\Debug\DTO.exe.config
+D:\BTL_Windows\QuanLyBanQuanAo\DTO\bin\Debug\DTO.exe
+D:\BTL_Windows\QuanLyBanQuanAo\DTO\bin\Debug\DTO.pdb
+D:\BTL_Windows\QuanLyBanQuanAo\DTO\bin\Debug\EntityFramework.dll
+D:\BTL_Windows\QuanLyBanQuanAo\DTO\bin\Debug\EntityFramework.SqlServer.dll
+D:\BTL_Windows\QuanLyBanQuanAo\DTO\bin\Debug\EntityFramework.xml
+D:\BTL_Windows\QuanLyBanQuanAo\DTO\bin\Debug\EntityFramework.SqlServer.xml
+D:\BTL_Windows\QuanLyBanQuanAo\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\BTL_Windows\QuanLyBanQuanAo\DTO\obj\Debug\DTO.csproj.CopyComplete
+D:\BTL_Windows\QuanLyBanQuanAo\DTO\obj\Debug\DTO.exe
+D:\BTL_Windows\QuanLyBanQuanAo\DTO\obj\Debug\DTO.pdb
