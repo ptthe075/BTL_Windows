@@ -49,6 +49,7 @@ namespace GUI.QuanTri
                 }
 
                 txtSoDT.Text = nv.SoDienThoai;
+                txtLuongCoBanNgay.Text = nv.LuongCoBanNgay.ToString();
 
                 txtMaNV.ReadOnly = true;
                 txtHoTen.ReadOnly = true;
@@ -123,6 +124,7 @@ namespace GUI.QuanTri
                         NgaySinh = dtpNgaySinh.Value,
                         GioiTinh = (radNam.Checked) ? "Nam" : "Nữ",
                         SoDienThoai = txtSoDT.Text,
+                        LuongCoBanNgay = int.Parse(txtLuongCoBanNgay.Text),
                         TaiKhoan = tk,
                     };
 
@@ -222,6 +224,7 @@ namespace GUI.QuanTri
             dtpNgaySinh.Value = DateTime.Now;
             radNam.Checked = true;
             txtSoDT.Text = "";
+            txtLuongCoBanNgay.Text = "";
 
             if (kt)
             {

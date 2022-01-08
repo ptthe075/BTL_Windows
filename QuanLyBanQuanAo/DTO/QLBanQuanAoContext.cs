@@ -64,10 +64,6 @@ namespace DTO
                 .HasForeignKey(e => e.MaNhanVien)
                 .WillCascadeOnDelete();
 
-            modelBuilder.Entity<SanPham>()
-                .Property(e => e.HinhAnh)
-                .IsUnicode(false);
-
             modelBuilder.Entity<TaiKhoan>()
                 .Property(e => e.TenDangNhap)
                 .IsUnicode(false);

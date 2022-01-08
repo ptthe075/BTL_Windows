@@ -28,9 +28,6 @@ namespace DTO
 
         public string MoTa { get; set; }
 
-        [StringLength(100)]
-        public string HinhAnh { get; set; }
-
         public int? MaLoaiSanPham { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -266,6 +266,7 @@ namespace BLL
                 LoaiHoaDon = true,
                 GiamGia = Convert.ToInt32(giamGia),
                 TongTien = Convert.ToInt32(tienHang - giamGia),
+                ID = tk.ID
             };
 
             foreach (var cthd in chiTietHoaDon)
