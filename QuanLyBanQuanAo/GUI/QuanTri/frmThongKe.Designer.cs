@@ -60,9 +60,16 @@ namespace GUI.QuanTri
             this.cmbLuongThang = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblTongLuong = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dtgvSanPhamBanChay = new System.Windows.Forms.DataGridView();
+            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTroLai = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDanhSachHoaDonNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDanhSachHoaDonBan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDanhSachLuong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvSanPhamBanChay)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -91,6 +98,7 @@ namespace GUI.QuanTri
             this.cmbHoaDonThang.Name = "cmbHoaDonThang";
             this.cmbHoaDonThang.Size = new System.Drawing.Size(45, 21);
             this.cmbHoaDonThang.TabIndex = 5;
+            this.cmbHoaDonThang.SelectedIndexChanged += new System.EventHandler(this.cmbHoaDonThang_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -108,6 +116,7 @@ namespace GUI.QuanTri
             this.cmbHoaDonNam.Name = "cmbHoaDonNam";
             this.cmbHoaDonNam.Size = new System.Drawing.Size(63, 21);
             this.cmbHoaDonNam.TabIndex = 7;
+            this.cmbHoaDonNam.SelectedIndexChanged += new System.EventHandler(this.cmbHoaDonNam_SelectedIndexChanged);
             // 
             // dtgvDanhSachHoaDonNhap
             // 
@@ -116,30 +125,33 @@ namespace GUI.QuanTri
             this.MaHoaDon,
             this.NgayTao,
             this.TongTien});
-            this.dtgvDanhSachHoaDonNhap.Location = new System.Drawing.Point(28, 123);
+            this.dtgvDanhSachHoaDonNhap.Location = new System.Drawing.Point(28, 219);
             this.dtgvDanhSachHoaDonNhap.Name = "dtgvDanhSachHoaDonNhap";
             this.dtgvDanhSachHoaDonNhap.Size = new System.Drawing.Size(509, 150);
             this.dtgvDanhSachHoaDonNhap.TabIndex = 8;
             // 
             // MaHoaDon
             // 
+            this.MaHoaDon.DataPropertyName = "MaHoaDon";
             this.MaHoaDon.HeaderText = "Mã hóa đơn";
             this.MaHoaDon.Name = "MaHoaDon";
             // 
             // NgayTao
             // 
+            this.NgayTao.DataPropertyName = "ThoiGian";
             this.NgayTao.HeaderText = "Ngày tạo";
             this.NgayTao.Name = "NgayTao";
             // 
             // TongTien
             // 
+            this.TongTien.DataPropertyName = "TongTien";
             this.TongTien.HeaderText = "Tổng tiền";
             this.TongTien.Name = "TongTien";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 100);
+            this.label5.Location = new System.Drawing.Point(25, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 9;
@@ -153,35 +165,39 @@ namespace GUI.QuanTri
             this.NgayBan,
             this.TongTienBan,
             this.NhanVienBan});
-            this.dtgvDanhSachHoaDonBan.Location = new System.Drawing.Point(28, 336);
+            this.dtgvDanhSachHoaDonBan.Location = new System.Drawing.Point(28, 432);
             this.dtgvDanhSachHoaDonBan.Name = "dtgvDanhSachHoaDonBan";
             this.dtgvDanhSachHoaDonBan.Size = new System.Drawing.Size(509, 150);
             this.dtgvDanhSachHoaDonBan.TabIndex = 8;
             // 
             // MaHoaDonBan
             // 
+            this.MaHoaDonBan.DataPropertyName = "MaHoaDon";
             this.MaHoaDonBan.HeaderText = "Mã hóa đơn";
             this.MaHoaDonBan.Name = "MaHoaDonBan";
             // 
             // NgayBan
             // 
+            this.NgayBan.DataPropertyName = "ThoiGian";
             this.NgayBan.HeaderText = "Ngày tạo";
             this.NgayBan.Name = "NgayBan";
             // 
             // TongTienBan
             // 
+            this.TongTienBan.DataPropertyName = "TongTien";
             this.TongTienBan.HeaderText = "Tổng tiền";
             this.TongTienBan.Name = "TongTienBan";
             // 
             // NhanVienBan
             // 
+            this.NhanVienBan.DataPropertyName = "TenNhanVien";
             this.NhanVienBan.HeaderText = "Nhân viên bán";
             this.NhanVienBan.Name = "NhanVienBan";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(25, 311);
+            this.label6.Location = new System.Drawing.Point(25, 407);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 13);
             this.label6.TabIndex = 9;
@@ -190,7 +206,7 @@ namespace GUI.QuanTri
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(298, 100);
+            this.label7.Location = new System.Drawing.Point(298, 196);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 13);
             this.label7.TabIndex = 10;
@@ -199,7 +215,7 @@ namespace GUI.QuanTri
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(304, 311);
+            this.label8.Location = new System.Drawing.Point(304, 407);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 13);
             this.label8.TabIndex = 11;
@@ -207,17 +223,17 @@ namespace GUI.QuanTri
             // 
             // lblTongTienNhap
             // 
-            this.lblTongTienNhap.Location = new System.Drawing.Point(400, 100);
+            this.lblTongTienNhap.Location = new System.Drawing.Point(400, 196);
             this.lblTongTienNhap.Name = "lblTongTienNhap";
-            this.lblTongTienNhap.Size = new System.Drawing.Size(35, 13);
+            this.lblTongTienNhap.Size = new System.Drawing.Size(137, 13);
             this.lblTongTienNhap.TabIndex = 0;
             this.lblTongTienNhap.Text = "010000";
             // 
             // lblTongTienBan
             // 
-            this.lblTongTienBan.Location = new System.Drawing.Point(400, 311);
+            this.lblTongTienBan.Location = new System.Drawing.Point(400, 407);
             this.lblTongTienBan.Name = "lblTongTienBan";
-            this.lblTongTienBan.Size = new System.Drawing.Size(35, 13);
+            this.lblTongTienBan.Size = new System.Drawing.Size(137, 13);
             this.lblTongTienBan.TabIndex = 12;
             this.lblTongTienBan.Text = "010000";
             // 
@@ -229,35 +245,39 @@ namespace GUI.QuanTri
             this.HoTen,
             this.SoNgayCong,
             this.Luong});
-            this.dtgvDanhSachLuong.Location = new System.Drawing.Point(583, 123);
+            this.dtgvDanhSachLuong.Location = new System.Drawing.Point(579, 100);
             this.dtgvDanhSachLuong.Name = "dtgvDanhSachLuong";
             this.dtgvDanhSachLuong.Size = new System.Drawing.Size(448, 125);
             this.dtgvDanhSachLuong.TabIndex = 15;
             // 
             // MaNhanVien
             // 
+            this.MaNhanVien.DataPropertyName = "MaNhanVien";
             this.MaNhanVien.HeaderText = "Mã nhân viên";
             this.MaNhanVien.Name = "MaNhanVien";
             // 
             // HoTen
             // 
+            this.HoTen.DataPropertyName = "HoTen";
             this.HoTen.HeaderText = "Họ tên";
             this.HoTen.Name = "HoTen";
             // 
             // SoNgayCong
             // 
+            this.SoNgayCong.DataPropertyName = "SoNgayCong";
             this.SoNgayCong.HeaderText = "Số ngày công";
             this.SoNgayCong.Name = "SoNgayCong";
             // 
             // Luong
             // 
+            this.Luong.DataPropertyName = "Luong";
             this.Luong.HeaderText = "Lương";
             this.Luong.Name = "Luong";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(581, 86);
+            this.label2.Location = new System.Drawing.Point(577, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 13);
             this.label2.TabIndex = 13;
@@ -266,7 +286,7 @@ namespace GUI.QuanTri
             // cmbLuongNam
             // 
             this.cmbLuongNam.FormattingEnabled = true;
-            this.cmbLuongNam.Location = new System.Drawing.Point(793, 83);
+            this.cmbLuongNam.Location = new System.Drawing.Point(789, 60);
             this.cmbLuongNam.Name = "cmbLuongNam";
             this.cmbLuongNam.Size = new System.Drawing.Size(63, 21);
             this.cmbLuongNam.TabIndex = 18;
@@ -274,7 +294,7 @@ namespace GUI.QuanTri
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(757, 86);
+            this.label11.Location = new System.Drawing.Point(753, 63);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 13);
             this.label11.TabIndex = 17;
@@ -283,7 +303,7 @@ namespace GUI.QuanTri
             // cmbLuongThang
             // 
             this.cmbLuongThang.FormattingEnabled = true;
-            this.cmbLuongThang.Location = new System.Drawing.Point(706, 83);
+            this.cmbLuongThang.Location = new System.Drawing.Point(702, 60);
             this.cmbLuongThang.Name = "cmbLuongThang";
             this.cmbLuongThang.Size = new System.Drawing.Size(45, 21);
             this.cmbLuongThang.TabIndex = 16;
@@ -291,7 +311,7 @@ namespace GUI.QuanTri
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(581, 275);
+            this.label9.Location = new System.Drawing.Point(577, 252);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 13);
             this.label9.TabIndex = 19;
@@ -300,17 +320,69 @@ namespace GUI.QuanTri
             // lblTongLuong
             // 
             this.lblTongLuong.AutoSize = true;
-            this.lblTongLuong.Location = new System.Drawing.Point(654, 275);
+            this.lblTongLuong.Location = new System.Drawing.Point(650, 252);
             this.lblTongLuong.Name = "lblTongLuong";
             this.lblTongLuong.Size = new System.Drawing.Size(37, 13);
             this.lblTongLuong.TabIndex = 20;
             this.lblTongLuong.Text = "10000";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(25, 100);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(129, 13);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Sản phẩm bán chạy nhất:";
+            // 
+            // dtgvSanPhamBanChay
+            // 
+            this.dtgvSanPhamBanChay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvSanPhamBanChay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaSanPham,
+            this.TenSanPham,
+            this.SoLuong});
+            this.dtgvSanPhamBanChay.Location = new System.Drawing.Point(28, 130);
+            this.dtgvSanPhamBanChay.Name = "dtgvSanPhamBanChay";
+            this.dtgvSanPhamBanChay.Size = new System.Drawing.Size(509, 52);
+            this.dtgvSanPhamBanChay.TabIndex = 22;
+            // 
+            // MaSanPham
+            // 
+            this.MaSanPham.DataPropertyName = "MaSanPham";
+            this.MaSanPham.HeaderText = "Mã sản phẩm";
+            this.MaSanPham.Name = "MaSanPham";
+            // 
+            // TenSanPham
+            // 
+            this.TenSanPham.DataPropertyName = "TenSanPham";
+            this.TenSanPham.HeaderText = "Tên sản phẩm";
+            this.TenSanPham.Name = "TenSanPham";
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "Số lượng bán";
+            this.SoLuong.Name = "SoLuong";
+            // 
+            // btnTroLai
+            // 
+            this.btnTroLai.Location = new System.Drawing.Point(952, 346);
+            this.btnTroLai.Name = "btnTroLai";
+            this.btnTroLai.Size = new System.Drawing.Size(75, 23);
+            this.btnTroLai.TabIndex = 23;
+            this.btnTroLai.Text = "Trở lại";
+            this.btnTroLai.UseVisualStyleBackColor = true;
+            this.btnTroLai.Click += new System.EventHandler(this.btnTroLai_Click);
+            // 
             // frmThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 529);
+            this.ClientSize = new System.Drawing.Size(1055, 598);
+            this.Controls.Add(this.btnTroLai);
+            this.Controls.Add(this.dtgvSanPhamBanChay);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.lblTongLuong);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.cmbLuongNam);
@@ -334,9 +406,11 @@ namespace GUI.QuanTri
             this.Name = "frmThongKe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thống kê";
+            this.Load += new System.EventHandler(this.frmThongKe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDanhSachHoaDonNhap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDanhSachHoaDonBan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDanhSachLuong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvSanPhamBanChay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,25 +429,31 @@ namespace GUI.QuanTri
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHoaDon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayTao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHoaDonBan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayBan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TongTienBan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NhanVienBan;
         private System.Windows.Forms.Label lblTongTienNhap;
         private System.Windows.Forms.Label lblTongTienBan;
         private System.Windows.Forms.DataGridView dtgvDanhSachLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoNgayCong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Luong;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbLuongNam;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmbLuongThang;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblTongLuong;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dtgvSanPhamBanChay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSanPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSanPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHoaDonBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongTienBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NhanVienBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHoaDon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayTao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoNgayCong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Luong;
+        private System.Windows.Forms.Button btnTroLai;
     }
 }

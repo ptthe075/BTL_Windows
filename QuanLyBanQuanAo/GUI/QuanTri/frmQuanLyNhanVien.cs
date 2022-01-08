@@ -204,7 +204,8 @@ namespace GUI.QuanTri
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Close();
+            new frmQuanTri().ShowDialog();
+            this.Close();
         }
 
         private void HienThiMacDinh(bool status, bool kt)

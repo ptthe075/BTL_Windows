@@ -22,5 +22,29 @@ namespace GUI
             new frmQuanLyLoaiSanPham().ShowDialog();
             this.Close();
         }
+
+        private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new QuanTri.frmQuanLyNhanVien().ShowDialog();
+            this.Close();
+        }
+
+        private void thốngKêDoanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new QuanTri.frmThongKe().ShowDialog();
+            this.Close();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmDangNhap().ShowDialog();
+            this.Close();
+        }
+
+        private void khuyếnMạiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new QuanTri.frmQuanLyKhuyenMai().ShowDialog();
+            this.Close();
+        }
     }
 }

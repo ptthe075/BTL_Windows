@@ -14,8 +14,15 @@ namespace GUI.QuanTri
 {
     public partial class frmXemThongTinHoaDonBan : Form
     {
+        string tenDangNhap;
         public frmXemThongTinHoaDonBan()
         {
+            InitializeComponent();
+        }
+
+        public frmXemThongTinHoaDonBan(string tenDangNhap)
+        {
+            this.tenDangNhap = tenDangNhap;
             InitializeComponent();
         }
 

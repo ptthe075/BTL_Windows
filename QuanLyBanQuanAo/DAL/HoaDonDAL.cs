@@ -76,5 +76,65 @@ namespace DAL
         {
             return db.HoaDons.FirstOrDefault(nv => nv.MaHoaDon == maHoaDon);
         }
+
+        public List<SanPham_SoLuong> SanPhamBanChayNhat(int thang, int nam)
+        {
+            List<HoaDon> danhSachHoaDon = db.HoaDons.AsEnumerable().Where(h => h.ThoiGian.Value.Month == thang && h.ThoiGian.Value.Year == nam && h.LoaiHoaDon == true).ToList();
+
+            var dongHoaDon_ChiTietHoaDon = from d in danhSachHoaDon
+                                           join c in db.DongHoaDons on d.MaHoaDon equals c.MaHoaDon
+                                           group c by c.MaSanPham into tem
+                                           select new DongHoaDon {
+                                               MaSanPham = tem.Key,
+                                               SoLuong = tem.Sum(t => t.SoLuong)
+                                           };
+            List<SanPham_SoLuong> sanPhamBanChay = (from d in dongHoaDon_ChiTietHoaDon
+                                              join s in db.SanPhams on d.MaSanPham equals s.MaSanPham
+                                              orderby d.SoLuong descending
+                                              select new SanPham_SoLuong {
+                                                 MaSanPham = d.MaSanPham,
+                                                 TenSanPham = s.TenSanPham,
+                                                 SoLuong = (int)d.SoLuong
+                                             }).Take(1).ToList();
+
+            return sanPhamBanChay;
+
+        }
+
+        public object LayDanhSachHoaDonBan(int thang, int nam)
+        {
+            //List<HoaDon> danhSachHoaDon = db.HoaDons.Where(h => h.ThoiGian.Value.Month == thang && h.ThoiGian.Value.Year == nam && h.LoaiHoaDon == true).ToList();
+            object danhSachHoaDon = (from d in db.HoaDons
+                                           join t in db.TaiKhoans on d.ID equals t.ID
+                                           join n in db.NhanViens on t.ID equals n.IdTK
+                                           where d.ThoiGian.Value.Month == thang && d.ThoiGian.Value.Year == nam && d.LoaiHoaDon == true
+                                           select new
+                                           {
+                                               MaHoaDon = d.MaHoaDon,
+                                               NgayTao = d.ThoiGian,
+                                               TongTien = d.TongTien,
+                                               TenNhanVien = n.HoTen
+                                           }).ToList();
+
+            return danhSachHoaDon;
+        }
+
+        public List<HoaDon> LayDanhSachHoaDonNhap(int thang, int nam)
+        {
+            List<HoaDon> danhSachHoaDon = db.HoaDons.AsEnumerable().Where(h => h.ThoiGian.Value.Month == thang && h.ThoiGian.Value.Year == nam && h.LoaiHoaDon == false).ToList();
+            return danhSachHoaDon;
+        }
+
+        public int LayTongTienBan(int thang, int nam)
+        {
+            List<HoaDon> danhSachHoaDon = db.HoaDons.Where(h => h.ThoiGian.Value.Month == thang && h.ThoiGian.Value.Year == nam && h.LoaiHoaDon == true).ToList();
+            return (int)danhSachHoaDon.Sum(d => d.TongTien);
+        }
+
+        public int LayTongTienNhap(int thang, int nam)
+        {
+            List<HoaDon> danhSachHoaDon = db.HoaDons.AsEnumerable().Where(h => h.ThoiGian.Value.Month == thang && h.ThoiGian.Value.Year == nam && h.LoaiHoaDon == false).ToList();
+            return (int)danhSachHoaDon.Sum(d => d.TongTien);
+        }
     }
 }

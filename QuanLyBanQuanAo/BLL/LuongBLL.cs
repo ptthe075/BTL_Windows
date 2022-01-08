@@ -28,5 +28,20 @@ namespace BLL
         {
             return LuongDAL.Instance.LayThongTinLuong(maNhanVien, thangNam);
         }
+
+        public object LayDanhSachLuong(int thang, int nam)
+        {
+            return LuongDAL.Instance.LayDanhSachLuong(thang, nam);
+        }
+
+        public int LayTongLuong(int thang, int nam)
+        {
+            return LuongDAL.Instance.LayTongLuong(thang, nam);
+        }
+
+        public void ChamCong(string tenDangNhap)
+        {
+            LuongDAL.Instance.ChamCong(tenDangNhap);
+        }
     }
 }
