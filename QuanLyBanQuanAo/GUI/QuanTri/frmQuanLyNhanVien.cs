@@ -144,6 +144,31 @@ namespace GUI.QuanTri
             }
         }
 
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            DTO.NhanVien nv = NhanVienBLL.Instance.LayNhanVienTheoMa(txtMaNV.Text);
+
+            if (nv != null)
+            {
+                try
+                {
+                    nv.LuongCoBanNgay = Convert.ToInt32(txtLuongCoBanNgay.Text);
+                    NhanVienBLL.Instance.CapNhatNhanVien(nv, 2);
+                    MessageBox.Show("Cập nhật nhân viên thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    HienThiMacDinh(true, false);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn nhân viên để sửa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnLayMK_Click(object sender, EventArgs e)
         {
             DTO.NhanVien nv = NhanVienBLL.Instance.LayNhanVienTheoMa(txtMaNV.Text);
