@@ -62,9 +62,9 @@ namespace GUI.QuanTri
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtLuongCoBanNgay = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
@@ -380,22 +380,13 @@ namespace GUI.QuanTri
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin nhân viên";
             // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(616, 23);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "QUẢN LÝ NHÂN VIÊN";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // txtLuongCoBanNgay
             // 
             this.txtLuongCoBanNgay.Location = new System.Drawing.Point(114, 170);
             this.txtLuongCoBanNgay.Name = "txtLuongCoBanNgay";
             this.txtLuongCoBanNgay.Size = new System.Drawing.Size(188, 20);
             this.txtLuongCoBanNgay.TabIndex = 14;
+            this.txtLuongCoBanNgay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDT_KeyPress);
             // 
             // label9
             // 
@@ -405,6 +396,16 @@ namespace GUI.QuanTri
             this.label9.Size = new System.Drawing.Size(67, 13);
             this.label9.TabIndex = 13;
             this.label9.Text = "Lương/Ngày";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(616, 23);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "QUẢN LÝ NHÂN VIÊN";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmQuanLyNhanVien
             // 
