@@ -12,7 +12,6 @@ namespace BLL
     public class SanPhamBLL
     {
         private static SanPhamBLL instance;
-
         public static SanPhamBLL Instance
         {
             get
@@ -58,17 +57,26 @@ namespace BLL
                 dsSanPham = SanPhamDAL.Instance.LayTheoTuKhoa(tkTenSP, maLoaiSP);
             }
 
-            dgv.DataSource = dsSanPham.Select(sp => new { sp.MaSanPham, sp.TenSanPham, LoaiSP = sp.LoaiSanPham.TenLoaiSanPham, sp.DonGiaBan, sp.DonGiaNhap }).ToList();
+            dgv.DataSource = dsSanPham.Select(sp => new 
+            { 
+                sp.MaSanPham, 
+                sp.TenSanPham, 
+                LoaiSP = sp.LoaiSanPham.TenLoaiSanPham,
+                SoLuongCo = sp.ChiTietSanPhams.Sum(ctsp => ctsp.SoLuongCon),
+                sp.DonGiaBan, 
+                sp.DonGiaNhap 
+            }).ToList();
             dgv.ClearSelection();
         }
 
         public void HienThiChiTietSP(DataGridView dgv, int maSP)
         {
             List<ChiTietSanPham> dsCTSP = new List<ChiTietSanPham>();
+            List<KichThuoc> dsKichThuoc = KichThuocDAL.Instance.LayToanBo();
+
             if (maSP == -1)
             {
-                var dsKT = KichThuocDAL.Instance.LayToanBo();
-                foreach (var kt in dsKT)
+                foreach (var kt in dsKichThuoc)
                 {
                     dsCTSP.Add(new ChiTietSanPham()
                     {
@@ -81,6 +89,24 @@ namespace BLL
             else
             {
                 dsCTSP = ChiTietSanPhamDAL.Instance.LayTheoMaSP(maSP);
+                if (dsKichThuoc.Count() > dsCTSP.Count())
+                {
+                    foreach (var kt in dsKichThuoc)
+                    {
+                        var sl = dsCTSP.Count(ctsp => ctsp.ID_KichThuoc == kt.ID_KichThuoc);
+                        if(sl == 0)
+                        {
+                            dsCTSP.Add(new ChiTietSanPham()
+                            {
+                                ID_KichThuoc = kt.ID_KichThuoc,
+                                KichThuoc = kt,
+                                SoLuongCon = 0
+                            });
+                        }
+                    }
+
+                    dsCTSP.OrderBy(ctsp => ctsp.ID_KichThuoc);
+                }
             }
 
             dgv.DataSource = dsCTSP.Select(ctsp => new { Size = ctsp.KichThuoc.Ten, ctsp.SoLuongCon }).ToList();

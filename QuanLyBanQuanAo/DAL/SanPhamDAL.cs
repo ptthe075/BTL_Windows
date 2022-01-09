@@ -63,7 +63,13 @@ namespace DAL
             }
             if (tt == 1)
             {
+                List<ChiTietSanPham> chiTietSanPhams = db.ChiTietSanPhams.Where(ctsp => ctsp.MaSanPham == sp.MaSanPham).ToList();
                 db.SanPhams.Remove(sp);
+
+                foreach(var ctsp in chiTietSanPhams)
+                {
+                    db.ChiTietSanPhams.Remove(ctsp);
+                }
             }
             db.SaveChanges();
         }
