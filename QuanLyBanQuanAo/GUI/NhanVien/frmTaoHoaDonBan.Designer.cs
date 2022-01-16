@@ -30,6 +30,16 @@ namespace GUI.NhanVien
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+//<<<<<<< the
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+//=======
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,6 +48,7 @@ namespace GUI.NhanVien
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+//>>>>>>> main
             this.btn50k = new System.Windows.Forms.Button();
             this.btnApDung = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -96,6 +107,11 @@ namespace GUI.NhanVien
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDanhSachSanPham = new System.Windows.Forms.DataGridView();
+            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LoaiSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.KichThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,11 +120,6 @@ namespace GUI.NhanVien
             this.dgvChiTietHoaDon = new System.Windows.Forms.DataGridView();
             this.SoLuongMua = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LoaiSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -139,6 +150,7 @@ namespace GUI.NhanVien
             this.btnApDung.TabIndex = 8;
             this.btnApDung.Text = "Áp dụng";
             this.btnApDung.UseVisualStyleBackColor = true;
+            this.btnApDung.Click += new System.EventHandler(this.btnApDung_Click);
             // 
             // groupBox5
             // 
@@ -500,9 +512,15 @@ namespace GUI.NhanVien
             // ThanhTien
             // 
             this.ThanhTien.DataPropertyName = "ThanhTien";
+//<<<<<<< the
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "#,### đ";
+            this.ThanhTien.DefaultCellStyle = dataGridViewCellStyle9;
+//=======
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle17.Format = "#,### đ";
             this.ThanhTien.DefaultCellStyle = dataGridViewCellStyle17;
+//>>>>>>> main
             this.ThanhTien.HeaderText = "Thành tiền";
             this.ThanhTien.Name = "ThanhTien";
             this.ThanhTien.ReadOnly = true;
@@ -510,9 +528,15 @@ namespace GUI.NhanVien
             // DonGia
             // 
             this.DonGia.DataPropertyName = "DonGia";
+//<<<<<<< the
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "#,### đ";
+            this.DonGia.DefaultCellStyle = dataGridViewCellStyle10;
+//=======
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle18.Format = "#,### đ";
             this.DonGia.DefaultCellStyle = dataGridViewCellStyle18;
+//>>>>>>> main
             this.DonGia.HeaderText = "Đơn giá";
             this.DonGia.Name = "DonGia";
             this.DonGia.ReadOnly = true;
@@ -746,6 +770,53 @@ namespace GUI.NhanVien
             this.dgvDanhSachSanPham.TabIndex = 3;
             this.dgvDanhSachSanPham.SelectionChanged += new System.EventHandler(this.dgvDanhSachSanPham_SelectionChanged);
             // 
+            // MaSanPham
+            // 
+            this.MaSanPham.DataPropertyName = "MaSanPham";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MaSanPham.DefaultCellStyle = dataGridViewCellStyle11;
+            this.MaSanPham.HeaderText = "Mã SP";
+            this.MaSanPham.Name = "MaSanPham";
+            this.MaSanPham.ReadOnly = true;
+            this.MaSanPham.Width = 65;
+            // 
+            // TenSanPham
+            // 
+            this.TenSanPham.DataPropertyName = "TenSanPham";
+            this.TenSanPham.HeaderText = "Tên sản phẩm";
+            this.TenSanPham.Name = "TenSanPham";
+            this.TenSanPham.ReadOnly = true;
+            this.TenSanPham.Width = 115;
+            // 
+            // LoaiSanPham
+            // 
+            this.LoaiSanPham.DataPropertyName = "LoaiSanPham";
+            this.LoaiSanPham.HeaderText = "Loại sản phẩm";
+            this.LoaiSanPham.Name = "LoaiSanPham";
+            this.LoaiSanPham.ReadOnly = true;
+            // 
+            // SoLuongCo
+            // 
+            this.SoLuongCo.DataPropertyName = "SoLuongCo";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.SoLuongCo.DefaultCellStyle = dataGridViewCellStyle12;
+            this.SoLuongCo.HeaderText = "Số lượng có";
+            this.SoLuongCo.Name = "SoLuongCo";
+            this.SoLuongCo.ReadOnly = true;
+            this.SoLuongCo.Width = 90;
+            // 
+            // GiaBan
+            // 
+            this.GiaBan.DataPropertyName = "DonGiaBan";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "#,### đ";
+            dataGridViewCellStyle13.NullValue = null;
+            this.GiaBan.DefaultCellStyle = dataGridViewCellStyle13;
+            this.GiaBan.HeaderText = "Giá bán";
+            this.GiaBan.Name = "GiaBan";
+            this.GiaBan.ReadOnly = true;
+            this.GiaBan.Width = 90;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtTimTenSP);
@@ -763,8 +834,13 @@ namespace GUI.NhanVien
             // KichThuoc
             // 
             this.KichThuoc.DataPropertyName = "Size";
+//<<<<<<< the
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.KichThuoc.DefaultCellStyle = dataGridViewCellStyle14;
+//=======
             dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.KichThuoc.DefaultCellStyle = dataGridViewCellStyle19;
+//>>>>>>> main
             this.KichThuoc.HeaderText = "Size";
             this.KichThuoc.Name = "KichThuoc";
             this.KichThuoc.ReadOnly = true;
@@ -789,8 +865,13 @@ namespace GUI.NhanVien
             // MaSP
             // 
             this.MaSP.DataPropertyName = "MaSP";
+//<<<<<<< the
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MaSP.DefaultCellStyle = dataGridViewCellStyle15;
+//=======
             dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.MaSP.DefaultCellStyle = dataGridViewCellStyle20;
+//>>>>>>> main
             this.MaSP.HeaderText = "Mã SP";
             this.MaSP.Name = "MaSP";
             this.MaSP.ReadOnly = true;
@@ -820,8 +901,13 @@ namespace GUI.NhanVien
             // SoLuongMua
             // 
             this.SoLuongMua.DataPropertyName = "SoLuongMua";
+//<<<<<<< the
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.SoLuongMua.DefaultCellStyle = dataGridViewCellStyle16;
+//=======
             dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.SoLuongMua.DefaultCellStyle = dataGridViewCellStyle21;
+//>>>>>>> main
             this.SoLuongMua.HeaderText = "Số lượng";
             this.SoLuongMua.Name = "SoLuongMua";
             this.SoLuongMua.ReadOnly = true;
@@ -837,6 +923,8 @@ namespace GUI.NhanVien
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Chi tiết hóa đơn";
             // 
+//<<<<<<< the
+//=======
             // MaSanPham
             // 
             this.MaSanPham.DataPropertyName = "MaSanPham";
@@ -884,6 +972,7 @@ namespace GUI.NhanVien
             this.GiaBan.ReadOnly = true;
             this.GiaBan.Width = 93;
             // 
+//>>>>>>> main
             // frmTaoHoaDonBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

@@ -22,8 +22,10 @@ namespace GUI
 
             //Application.Run(new QuanTri.frmQuanLyNhanVien());
             //Application.Run(new QuanTri.frmXemThongTinHoaDonBan());
+            Application.Run(new NhanVien.frmTaoHoaDonBan());
+            //Application.Run(new QuanTri.frmTaoHoaDonNhap());
+            //Application.Run(new QuanTri.frmQuanLySanPham());
             //Application.Run(new NhanVien.frmTaoHoaDonBan());
-            Application.Run(new QuanTri.frmQuanLySanPham());
             //Application.Run(new frmDangNhap());
         }
     }

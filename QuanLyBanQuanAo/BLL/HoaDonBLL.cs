@@ -14,7 +14,7 @@ namespace BLL
         private static HoaDonBLL instance;
         private List<DongHoaDon> chiTietHoaDon;
         private decimal tienHang = 0;
-        private decimal giamGia = 0;
+        private KhuyenMai khuyenMai = null;
         private decimal khachTra = 0;
 
         public static HoaDonBLL Instance
@@ -113,7 +113,7 @@ namespace BLL
         }
 
         public decimal TienHang { get { return tienHang; } }
-        public decimal GiamGia { get { return giamGia; } }
+        public KhuyenMai KhuyenMai { get { return khuyenMai; } }
         public decimal KhachTra { get { return khachTra; } set { this.khachTra = value; } }
 
         public String TaoMaHoaDon(bool kiemTra)
@@ -145,6 +145,25 @@ namespace BLL
                 sp.DonGiaBan
             }).ToList();
             dgv.ClearSelection();
+        }
+
+        public int kiemTraKhuyenMai(string maGiamGia)
+        {
+            DateTime dateTime = DateTime.Today;
+
+            List<KhuyenMai> dsKM = KhuyenMaiDAL.Instance.TimKhuyenMaiTheoCode(maGiamGia);
+
+            KhuyenMai KM = dsKM.OrderByDescending(km => km.GiaTri).FirstOrDefault(km => km.HanSuDung > dateTime && km.SoLuongCon > 0);
+
+            if(KM == null)
+            {
+                khuyenMai = null;
+                return 0;
+            } else
+            {
+                khuyenMai = KM;
+                return (int)KM.GiaTri;
+            }
         }
 
         public void TaoDSLoaiSP(ComboBox cbxLocLoaiSP)
@@ -235,7 +254,7 @@ namespace BLL
                 case 3:
                     chiTietHoaDon = new List<DongHoaDon>();
                     tienHang = 0;
-                    giamGia = 0;
+                    khuyenMai = null;
                     khachTra = 0;
                     break;
             }
@@ -259,12 +278,17 @@ namespace BLL
         public bool ThanhToanHoaDonBan(string maHD, string tenDangNhap)
         {
             TaiKhoan tk = TaiKhoanDAL.Instance.LayTaiKhoan(tenDangNhap);
+            int giamGia = (int)((khuyenMai == null) ? 0 : khuyenMai.GiaTri);
             HoaDon hoaDon = new HoaDon()
             {
                 MaHoaDon = maHD,
                 ThoiGian = DateTime.Now,
+//<<<<<<< the
+                GiamGia = giamGia,
+//=======
                 LoaiHoaDon = true,
                 GiamGia = Convert.ToInt32(giamGia),
+//>>>>>>> main
                 TongTien = Convert.ToInt32(tienHang - giamGia),
                 ID = tk.ID
             };
@@ -279,7 +303,11 @@ namespace BLL
             try
             {
                 HoaDonDAL.Instance.LuuHoaDon(hoaDon, chiTietHoaDon);
-
+                if (!loaiHDAdmin)
+                {
+                    khuyenMai.SoLuongCon--;
+                    KhuyenMaiDAL.Instance.SuaKhuyenMai(khuyenMai);
+                }
                 return true;
             }
             catch (Exception ex)
