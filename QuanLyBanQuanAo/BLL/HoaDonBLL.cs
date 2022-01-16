@@ -129,7 +129,8 @@ namespace BLL
 
         public String TaoMaHoaDon(bool kiemTra)
         {
-            if (kiemTra)
+
+            if(kiemTra)
             {
                 loaiHDAdmin = false;
             }
@@ -196,7 +197,6 @@ namespace BLL
         public void HienThiKichThuc(List<ChiTietSanPham> chiTietSanPhams, ComboBox cbxSize)
         {
             List<KichThuoc> data = new List<KichThuoc>();
-
             if (chiTietSanPhams != null)
             {
                 foreach (var ctsp in chiTietSanPhams)
@@ -211,8 +211,6 @@ namespace BLL
             {
                 data = KichThuocDAL.Instance.LayToanBo().ToList();
             }
-
-
             cbxSize.DataSource = data;
             cbxSize.ValueMember = "ID_KichThuoc";
             cbxSize.DisplayMember = "Ten";
@@ -309,7 +307,6 @@ namespace BLL
                     ThanhTien = cthd.SoLuong * cthd.SanPham.DonGiaBan
                 }).ToList();
             }
-
             dgv.ClearSelection();
 
             tienHang = Convert.ToDecimal(chiTietHoaDon.Sum(cthd => cthd.SoLuong * cthd.SanPham.DonGiaBan));
