@@ -130,7 +130,7 @@ namespace GUI.NhanVien
         {
             HoaDonBLL.Instance.CapNhatChiTietHoaDon(dgvChiTietHoaDon, Convert.ToInt32(lblMaSP.Text), Convert.ToInt32(cbxSize.SelectedValue), Convert.ToInt32(nudSoLuong.Value), 1);
             CapNhatTienHang();
-            dgvDanhSachSanPham.ClearSelection(); 
+            dgvDanhSachSanPham.ClearSelection();
             HienThiMacDinh();
         }
 
@@ -189,9 +189,9 @@ namespace GUI.NhanVien
             if (HoaDonBLL.Instance.ThanhToanHoaDonBan(lblMaHoaDon.Text, tenDangNhap))
             {
                 MessageBox.Show("Thanh toán hóa đơn thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
-                new NhanVien.frmInHoaDonBan(lblMaHoaDon.Text, Convert.ToInt32(txtTienKhachTra.Text), true).ShowDialog();
-
+                Hide();
+                new NhanVien.frmInHoaDonBan(lblMaHoaDon.Text, Convert.ToInt32(txtTienKhachTra.Text), true, tenDangNhap).ShowDialog();
+                Close();
                 //Hiển thị lại ban đầu
                 HoaDonBLL.Instance.CapNhatChiTietHoaDon(dgvChiTietHoaDon, 0, 0, 0, 3);
                 lblMaHoaDon.Text = lblMaHoaDon.Text = HoaDonBLL.Instance.TaoMaHoaDon(true);
@@ -204,6 +204,7 @@ namespace GUI.NhanVien
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
+            Hide();
             new frmNhanVien(tenDangNhap).ShowDialog();
             Close();
         }
