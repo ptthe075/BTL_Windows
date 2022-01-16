@@ -48,7 +48,25 @@ namespace DAL
 
         public bool DaDangNhapHomNay(string tenDangNhap)
         {
-            return true;
+            var taiKhoan = db.TaiKhoans.Where(t => t.TenDangNhap == tenDangNhap).FirstOrDefault();
+
+            if(taiKhoan.ThoiGianDangNhapCuoi == null)
+            {
+                taiKhoan.ThoiGianDangNhapCuoi = DateTime.Now;
+                db.SaveChanges();
+                return false;
+            }
+            
+            if(taiKhoan.ThoiGianDangNhapCuoi.Value.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
+            {
+                return true;
+            }
+            else
+            {
+                taiKhoan.ThoiGianDangNhapCuoi = DateTime.Now;
+                db.SaveChanges();
+                return false;
+            }
         }
 
         public TaiKhoan LayThongTinTaiKhoan(string tenDangNhap)

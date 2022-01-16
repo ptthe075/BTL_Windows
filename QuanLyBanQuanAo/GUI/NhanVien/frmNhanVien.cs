@@ -20,21 +20,32 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void xemThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DangXuatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmThongTinTaiKhoan(tenDangNhap).ShowDialog();
-            Close();
-        }
-
-        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+            Hide();
             new frmDangNhap().ShowDialog();
             Close();
         }
 
-        private void tạoHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TaoHoaDonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Hide();
             new NhanVien.frmTaoHoaDonBan(tenDangNhap).ShowDialog();
+            Close();
+        }
+
+        private void XemThongTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmThongTinTaiKhoan(tenDangNhap).ShowDialog();
+            Close();
+        }
+
+        private void lịchSửTạoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new QuanTri.frmXemThongTinHoaDonBan().ShowDialog();
+            Close();
         }
     }
 }

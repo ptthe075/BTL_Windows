@@ -16,6 +16,7 @@ namespace BLL
         private decimal tienHang = 0;
         private decimal giamGia = 0;
         private decimal khachTra = 0;
+        private bool loaiHDAdmin = false;
 
         public static HoaDonBLL Instance
         {
@@ -33,14 +34,14 @@ namespace BLL
         {
             List<HoaDon> dsHD;
 
-            if(tuKhoa == null)
+            if (tuKhoa == null)
             {
                 //Hiện tất cả
                 dsHD = HoaDonDAL.Instance.LayTheoLoaiHD(true);
             }
             else
             {
-                if(status == 2 &&  Convert.ToInt32(tuKhoa[0]) == 0)
+                if (status == 2 && Convert.ToInt32(tuKhoa[0]) == 0)
                 {
                     dsHD = HoaDonDAL.Instance.LayTheoLoaiHD(true);
                 }
@@ -63,6 +64,16 @@ namespace BLL
             lblTongHD.Text = dsHD.Count().ToString();
             lblTongTien.Text = string.Format("{0:#,### đ}", dsHD.Sum(hd => hd.TongTien));
 
+        }
+
+        public void HienThiNhanVien(Label lblNhanVien, string tenDN)
+        {
+            TaiKhoan tk = TaiKhoanDAL.Instance.LayTaiKhoan(tenDN);
+            if (tk != null)
+            {
+                DTO.NhanVien nv = tk.NhanViens.FirstOrDefault();
+                lblNhanVien.Text = nv.MaNhanVien + " - " + nv.HoTen;
+            }
         }
 
         public void HienThiMaNV(ComboBox cbx)
@@ -118,6 +129,15 @@ namespace BLL
 
         public String TaoMaHoaDon(bool kiemTra)
         {
+
+            if(kiemTra)
+            {
+                loaiHDAdmin = false;
+            }
+            else
+            {
+                loaiHDAdmin = true;
+            }
             String ma = (kiemTra) ? "HDB-" : "HDN-";
             DateTime date = DateTime.Now;
             ma += date.ToString("ddMMyy-");
@@ -137,20 +157,36 @@ namespace BLL
                 if (isEmpty(tenSP)) tenSP = null;
                 dsNV = SanPhamDAL.Instance.LayTheoTuKhoa(tenSP, maLoaiSP);
             }
-            dgv.DataSource = dsNV.Select(sp => new {
-                sp.MaSanPham,
-                sp.TenSanPham,
-                SoLuongCo = sp.ChiTietSanPhams.Sum(ctsp => ctsp.SoLuongCon),
-                LoaiSanPham = sp.LoaiSanPham.TenLoaiSanPham,
-                sp.DonGiaBan
-            }).ToList();
+
+            if (loaiHDAdmin)
+            {
+                dgv.DataSource = dsNV.Select(sp => new
+                {
+                    sp.MaSanPham,
+                    sp.TenSanPham,
+                    LoaiSanPham = sp.LoaiSanPham.TenLoaiSanPham,
+                    sp.DonGiaNhap
+                }).ToList();
+            }
+            else
+            {
+                dgv.DataSource = dsNV.Select(sp => new
+                {
+                    sp.MaSanPham,
+                    sp.TenSanPham,
+                    SoLuongCo = sp.ChiTietSanPhams.Sum(ctsp => ctsp.SoLuongCon),
+                    LoaiSanPham = sp.LoaiSanPham.TenLoaiSanPham,
+                    sp.DonGiaBan,
+                }).ToList();
+            }
+
             dgv.ClearSelection();
         }
 
         public void TaoDSLoaiSP(ComboBox cbxLocLoaiSP)
         {
             List<LoaiSanPham> data = new List<LoaiSanPham>();
-            data.Add(new LoaiSanPham() { MaLoaiSanPham = 0, TenLoaiSanPham = "Tất cả", SanPhams = null});
+            data.Add(new LoaiSanPham() { MaLoaiSanPham = 0, TenLoaiSanPham = "Tất cả", SanPhams = null });
             data.AddRange(LoaiSanPhamDAL.Instance.LayToanBo());
 
             cbxLocLoaiSP.DataSource = data;
@@ -161,15 +197,20 @@ namespace BLL
         public void HienThiKichThuc(List<ChiTietSanPham> chiTietSanPhams, ComboBox cbxSize)
         {
             List<KichThuoc> data = new List<KichThuoc>();
-
-            foreach (var ctsp in chiTietSanPhams)
+            if (chiTietSanPhams != null)
             {
-                if (ctsp.SoLuongCon > 0)
+                foreach (var ctsp in chiTietSanPhams)
                 {
-                    data.Add(ctsp.KichThuoc);
+                    if (ctsp.SoLuongCon > 0)
+                    {
+                        data.Add(ctsp.KichThuoc);
+                    }
                 }
             }
-
+            else
+            {
+                data = KichThuocDAL.Instance.LayToanBo().ToList();
+            }
             cbxSize.DataSource = data;
             cbxSize.ValueMember = "ID_KichThuoc";
             cbxSize.DisplayMember = "Ten";
@@ -240,17 +281,32 @@ namespace BLL
                     break;
             }
 
-            var data = chiTietHoaDon.Select(cthd => new
+            if (loaiHDAdmin)
             {
-                MaSP = cthd.MaSanPham,
-                MaKichThuoc = cthd.ID_KichThuoc,
-                TenSP = cthd.SanPham.TenSanPham,
-                Size = cthd.KichThuoc.Ten,
-                SoLuongMua = cthd.SoLuong,
-                DonGia = cthd.SanPham.DonGiaBan,
-                ThanhTien = cthd.SoLuong * cthd.SanPham.DonGiaBan
-            });
-            dgv.DataSource = data.ToList();
+                dgv.DataSource = chiTietHoaDon.Select(cthd => new
+                {
+                    MaSP = cthd.MaSanPham,
+                    MaKT = cthd.ID_KichThuoc,
+                    TenSP = cthd.SanPham.TenSanPham,
+                    Size = cthd.KichThuoc.Ten,
+                    SoLuongNhap = cthd.SoLuong,
+                    DonGiaNhap = cthd.SanPham.DonGiaNhap,
+                    ThanhTien = cthd.SoLuong * cthd.SanPham.DonGiaBan
+                }).ToList();
+            }
+            else
+            {
+                dgv.DataSource = chiTietHoaDon.Select(cthd => new
+                {
+                    MaSP = cthd.MaSanPham,
+                    MaKichThuoc = cthd.ID_KichThuoc,
+                    TenSP = cthd.SanPham.TenSanPham,
+                    Size = cthd.KichThuoc.Ten,
+                    SoLuongMua = cthd.SoLuong,
+                    DonGia = cthd.SanPham.DonGiaBan,
+                    ThanhTien = cthd.SoLuong * cthd.SanPham.DonGiaBan
+                }).ToList();
+            }
             dgv.ClearSelection();
 
             tienHang = Convert.ToDecimal(chiTietHoaDon.Sum(cthd => cthd.SoLuong * cthd.SanPham.DonGiaBan));
@@ -263,11 +319,19 @@ namespace BLL
             {
                 MaHoaDon = maHD,
                 ThoiGian = DateTime.Now,
-                LoaiHoaDon = true,
                 GiamGia = Convert.ToInt32(giamGia),
                 TongTien = Convert.ToInt32(tienHang - giamGia),
                 ID = tk.ID
             };
+
+            if (loaiHDAdmin)
+            {
+                hoaDon.LoaiHoaDon = false;
+            }
+            else
+            {
+                hoaDon.LoaiHoaDon = true;
+            }
 
             foreach (var cthd in chiTietHoaDon)
             {
@@ -311,7 +375,7 @@ namespace BLL
             return HoaDonDAL.Instance.LayDanhSachHoaDonBan(thang, nam);
         }
 
-        public List<HoaDon> LayDanhSachHoaDonNhap(int thang, int nam)
+        public object LayDanhSachHoaDonNhap(int thang, int nam)
         {
             return HoaDonDAL.Instance.LayDanhSachHoaDonNhap(thang, nam);
         }

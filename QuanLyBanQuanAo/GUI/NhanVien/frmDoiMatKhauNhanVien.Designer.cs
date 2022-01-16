@@ -124,6 +124,7 @@ namespace GUI.NhanVien
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmDoiMatKhauNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đổi mật khẩu";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -54,6 +54,7 @@ namespace GUI.NhanVien
 
         private void btnTroLai_Click(object sender, EventArgs e)
         {
+            Hide();
             new frmThongTinTaiKhoan(tenDangNhap).ShowDialog();
             this.Close();
         }
