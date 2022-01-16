@@ -113,9 +113,7 @@ namespace GUI.QuanTri
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Hide();
             new frmQuanTri().ShowDialog();
-            Close();
         }
 
         private void dgvSanPham_SelectionChanged(object sender, EventArgs e)

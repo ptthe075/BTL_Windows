@@ -46,7 +46,7 @@ namespace BLL
             {
                 dsNV = NhanVienDAL.Instance.LayTheoTuKhoa(tuKhoa);
             }
-            dgv.DataSource = dsNV.Select(nv => new { nv.MaNhanVien, nv.HoTen, nv.NgaySinh, nv.GioiTinh, nv.SoDienThoai, TenDangNhap = nv.TaiKhoan.TenDangNhap, Luong = nv.LuongCoBanNgay }).ToList();
+            dgv.DataSource = dsNV.Select(nv => new { nv.MaNhanVien, nv.HoTen, nv.NgaySinh, nv.GioiTinh, nv.SoDienThoai, TenDangNhap = nv.TaiKhoan.TenDangNhap }).ToList();
             dgv.ClearSelection();
         }
 
