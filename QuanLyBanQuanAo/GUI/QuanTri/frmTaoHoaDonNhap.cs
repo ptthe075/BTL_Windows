@@ -151,5 +151,12 @@ namespace GUI.QuanTri
                 HienThiMacDinh();
             }
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmQuanTri().ShowDialog();
+            Close();
+        }
     }
 }

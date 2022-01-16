@@ -18,16 +18,20 @@ namespace GUI.NhanVien
         public string maHD;
         public int khachDua;
         public bool status;
-        public frmInHoaDonBan(string _maHD, int _khachDua, bool _status)
+        private String tenDangNhap;
+        public frmInHoaDonBan(string _maHD, int _khachDua, bool _status, String tenDangNhap)
         {
             InitializeComponent();
             maHD = _maHD;
             khachDua = _khachDua;
             status = _status;
+            this.tenDangNhap = tenDangNhap;
         }
 
         private void btnDong_Click(object sender, EventArgs e)
         {
+            Hide();
+            new frmTaoHoaDonBan(tenDangNhap).ShowDialog();
             Close();
         }
 

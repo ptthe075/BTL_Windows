@@ -34,14 +34,14 @@ namespace BLL
         {
             List<HoaDon> dsHD;
 
-            if(tuKhoa == null)
+            if (tuKhoa == null)
             {
                 //Hiện tất cả
                 dsHD = HoaDonDAL.Instance.LayTheoLoaiHD(true);
             }
             else
             {
-                if(status == 2 &&  Convert.ToInt32(tuKhoa[0]) == 0)
+                if (status == 2 && Convert.ToInt32(tuKhoa[0]) == 0)
                 {
                     dsHD = HoaDonDAL.Instance.LayTheoLoaiHD(true);
                 }
@@ -129,6 +129,7 @@ namespace BLL
 
         public String TaoMaHoaDon(bool kiemTra)
         {
+
             if(kiemTra)
             {
                 loaiHDAdmin = false;
@@ -185,7 +186,7 @@ namespace BLL
         public void TaoDSLoaiSP(ComboBox cbxLocLoaiSP)
         {
             List<LoaiSanPham> data = new List<LoaiSanPham>();
-            data.Add(new LoaiSanPham() { MaLoaiSanPham = 0, TenLoaiSanPham = "Tất cả", SanPhams = null});
+            data.Add(new LoaiSanPham() { MaLoaiSanPham = 0, TenLoaiSanPham = "Tất cả", SanPhams = null });
             data.AddRange(LoaiSanPhamDAL.Instance.LayToanBo());
 
             cbxLocLoaiSP.DataSource = data;
@@ -196,8 +197,7 @@ namespace BLL
         public void HienThiKichThuc(List<ChiTietSanPham> chiTietSanPhams, ComboBox cbxSize)
         {
             List<KichThuoc> data = new List<KichThuoc>();
-
-            if(chiTietSanPhams != null)
+            if (chiTietSanPhams != null)
             {
                 foreach (var ctsp in chiTietSanPhams)
                 {
@@ -211,8 +211,6 @@ namespace BLL
             {
                 data = KichThuocDAL.Instance.LayToanBo().ToList();
             }
-            
-
             cbxSize.DataSource = data;
             cbxSize.ValueMember = "ID_KichThuoc";
             cbxSize.DisplayMember = "Ten";
@@ -309,7 +307,6 @@ namespace BLL
                     ThanhTien = cthd.SoLuong * cthd.SanPham.DonGiaBan
                 }).ToList();
             }
-            
             dgv.ClearSelection();
 
             tienHang = Convert.ToDecimal(chiTietHoaDon.Sum(cthd => cthd.SoLuong * cthd.SanPham.DonGiaBan));
@@ -378,7 +375,7 @@ namespace BLL
             return HoaDonDAL.Instance.LayDanhSachHoaDonBan(thang, nam);
         }
 
-        public List<HoaDon> LayDanhSachHoaDonNhap(int thang, int nam)
+        public object LayDanhSachHoaDonNhap(int thang, int nam)
         {
             return HoaDonDAL.Instance.LayDanhSachHoaDonNhap(thang, nam);
         }

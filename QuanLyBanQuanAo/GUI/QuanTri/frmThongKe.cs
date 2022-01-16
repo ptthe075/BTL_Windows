@@ -59,7 +59,7 @@ namespace GUI.QuanTri
             int nam = int.Parse(cmbHoaDonNam.Text);
             var danhSachHoaDonNhap = HoaDonBLL.Instance.LayDanhSachHoaDonNhap(thang, nam);
 
-            dtgvDanhSachHoaDonBan.DataSource = danhSachHoaDonNhap;
+            dtgvDanhSachHoaDonNhap.DataSource = danhSachHoaDonNhap;
             lblTongTienNhap.Text = HoaDonBLL.Instance.LayTongTienNhap(thang, nam).ToString();
         }
 
@@ -105,8 +105,19 @@ namespace GUI.QuanTri
             ReLoad();
         }
 
+        private void cmbLuongThang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ReLoad();
+        }
+
+        private void cmbLuongNam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ReLoad();
+        }
+
         private void btnTroLai_Click(object sender, EventArgs e)
         {
+            Hide();
             new frmQuanTri().ShowDialog();
             this.Close();
         }

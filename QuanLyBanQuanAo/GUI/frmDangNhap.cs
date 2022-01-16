@@ -35,16 +35,18 @@ namespace GUI
                 
                 if (TaiKhoanBLL.Instance.LaTaiKhoanNhanVien(tenDangNhap))
                 {
-                    if (TaiKhoanBLL.Instance.DaDangNhapHomNay(tenDangNhap))
+                    if (!TaiKhoanBLL.Instance.DaDangNhapHomNay(tenDangNhap))
                     {
                         LuongBLL.Instance.ChamCong(tenDangNhap);
                     }
+                    Hide();
                     new frmNhanVien(tenDangNhap).ShowDialog();
                         
                     Close();
                 }
                 else
                 {
+                    Hide();
                     new frmQuanTri().ShowDialog();
                     Close();
                 }

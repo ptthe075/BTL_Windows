@@ -131,11 +131,13 @@ namespace GUI.QuanTri
         private void dgvHoaDon_DoubleClick(object sender, EventArgs e)
         {
             var maHD = dgvHoaDon.CurrentRow.Cells["MaHD"].Value.ToString();
-            new NhanVien.frmInHoaDonBan(maHD, 0, false).ShowDialog();
+            new NhanVien.frmInHoaDonBan(maHD, 0, false, tenDangNhap).ShowDialog();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
+            Hide();
+            new frmNhanVien(tenDangNhap).ShowDialog();
             Close();
         }
 
