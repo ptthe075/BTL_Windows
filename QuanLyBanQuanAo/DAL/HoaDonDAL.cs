@@ -111,7 +111,7 @@ namespace DAL
                                            select new
                                            {
                                                MaHoaDon = d.MaHoaDon,
-                                               ThoiGian = d.ThoiGian,
+                                               NgayTao = d.ThoiGian,
                                                TongTien = d.TongTien,
                                                TenNhanVien = n.HoTen
                                            }).ToList();
@@ -119,12 +119,9 @@ namespace DAL
             return danhSachHoaDon;
         }
 
-        public object LayDanhSachHoaDonNhap(int thang, int nam)
+        public List<HoaDon> LayDanhSachHoaDonNhap(int thang, int nam)
         {
-            object danhSachHoaDon = db.HoaDons.AsEnumerable()
-                .Where(h => h.ThoiGian.Value.Month == thang && h.ThoiGian.Value.Year == nam && h.LoaiHoaDon == false)
-                .Select(d => new { MaHoaDon = d.MaHoaDon, ThoiGian = d.ThoiGian, TongTien = d.TongTien})
-                .ToList();
+            List<HoaDon> danhSachHoaDon = db.HoaDons.AsEnumerable().Where(h => h.ThoiGian.Value.Month == thang && h.ThoiGian.Value.Year == nam && h.LoaiHoaDon == false).ToList();
             return danhSachHoaDon;
         }
 
