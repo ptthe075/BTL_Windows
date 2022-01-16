@@ -65,14 +65,12 @@ namespace GUI
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
-            Hide();
             new frmDoiMatKhauNhanVien(tenDangNhap).ShowDialog();
             this.Close();
         }
 
         private void btnTroVe_Click(object sender, EventArgs e)
         {
-            Hide();
             new frmNhanVien(tenDangNhap).ShowDialog();
             this.Close();
         }

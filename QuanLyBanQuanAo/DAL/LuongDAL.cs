@@ -64,7 +64,7 @@ namespace DAL
                 luongMoi.ThangNam = DateTime.Now;
                 luongMoi.SoNgayCong = 1;
                 luongMoi.Thuong = 0;
-                luongMoi.LuongCoBanNgay = nhanVien.LuongCoBanNgay;
+                //luongMoi.LuongCoBanNgay = nhanVien.LuongCoBanNgay;
                 db.Luongs.Add(luongMoi);
                 db.SaveChanges();
                 return;

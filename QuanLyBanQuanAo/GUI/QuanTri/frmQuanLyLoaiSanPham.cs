@@ -110,7 +110,6 @@ namespace GUI
 
         private void btnTroLai_Click(object sender, EventArgs e)
         {
-            Hide();
             new frmQuanTri().ShowDialog();
             this.Close();
         }
