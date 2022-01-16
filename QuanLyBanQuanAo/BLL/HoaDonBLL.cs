@@ -129,7 +129,6 @@ namespace BLL
 
         public String TaoMaHoaDon(bool kiemTra)
         {
-
             if(kiemTra)
             {
                 loaiHDAdmin = false;
