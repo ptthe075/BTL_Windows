@@ -108,9 +108,9 @@ namespace BLL
                     dsCTSP.OrderBy(ctsp => ctsp.ID_KichThuoc);
                 }
             }
+
             dgv.DataSource = dsCTSP.Select(ctsp => new { Size = ctsp.KichThuoc.Ten, ctsp.SoLuongCon }).ToList();
             dgv.ClearSelection();
-
         }
 
         public void CapNhatSanPham(SanPham sp, int tt)
