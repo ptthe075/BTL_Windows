@@ -231,7 +231,6 @@ namespace GUI.QuanTri
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Hide();
             new frmQuanTri().ShowDialog();
             this.Close();
         }
