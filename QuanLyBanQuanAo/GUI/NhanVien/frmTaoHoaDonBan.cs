@@ -31,7 +31,6 @@ namespace GUI.NhanVien
         {
             lblMaHoaDon.Text = HoaDonBLL.Instance.TaoMaHoaDon(true);
             HoaDonBLL.Instance.TaoDSLoaiSP(cbxLocLoaiSP);
-            HoaDonBLL.Instance.HienThiNhanVien(lblNhanVien, tenDangNhap);
             HoaDonBLL.Instance.HienThiSanPham(dgvDanhSachSanPham, null, 0);
             HienThiMacDinh();
             CapNhatTienHang();
@@ -106,16 +105,16 @@ namespace GUI.NhanVien
         {
 
             var loaiSP = cbxLocLoaiSP.SelectedValue;
-            if (loaiSP is LoaiSanPham) { }
+            if (loaiSP is LoaiSanPham){}
             else
             {
-                HoaDonBLL.Instance.HienThiSanPham(dgvDanhSachSanPham, txtTimTenSP.Text, (int)loaiSP);
+                HoaDonBLL.Instance.HienThiSanPham(dgvDanhSachSanPham, txtTimTenSP.Text, cbxLocLoaiSP.SelectedIndex);
             }
         }
 
         private void txtTimTenSP_TextChanged(object sender, EventArgs e)
         {
-            HoaDonBLL.Instance.HienThiSanPham(dgvDanhSachSanPham, txtTimTenSP.Text, (int)cbxLocLoaiSP.SelectedValue);
+            HoaDonBLL.Instance.HienThiSanPham(dgvDanhSachSanPham, txtTimTenSP.Text, cbxLocLoaiSP.SelectedIndex);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -206,7 +205,7 @@ namespace GUI.NhanVien
         {
             if (HoaDonBLL.Instance.ThanhToanHoaDonBan(lblMaHoaDon.Text, tenDangNhap))
             {
-                MessageBox.Show("Thanh toán hóa đơn thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thanh toán thành công thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 new NhanVien.frmInHoaDonBan(lblMaHoaDon.Text, Convert.ToInt32(txtTienKhachTra.Text), true).ShowDialog();
 
@@ -218,6 +217,7 @@ namespace GUI.NhanVien
                 dgvDanhSachSanPham.ClearSelection();
                 HienThiMacDinh();
             }
+            
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
