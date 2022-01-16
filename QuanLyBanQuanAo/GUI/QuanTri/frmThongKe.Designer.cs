@@ -127,6 +127,7 @@ namespace GUI.QuanTri
             this.TongTien});
             this.dtgvDanhSachHoaDonNhap.Location = new System.Drawing.Point(28, 219);
             this.dtgvDanhSachHoaDonNhap.Name = "dtgvDanhSachHoaDonNhap";
+            this.dtgvDanhSachHoaDonNhap.ReadOnly = true;
             this.dtgvDanhSachHoaDonNhap.Size = new System.Drawing.Size(509, 150);
             this.dtgvDanhSachHoaDonNhap.TabIndex = 8;
             // 
@@ -167,6 +168,7 @@ namespace GUI.QuanTri
             this.NhanVienBan});
             this.dtgvDanhSachHoaDonBan.Location = new System.Drawing.Point(28, 432);
             this.dtgvDanhSachHoaDonBan.Name = "dtgvDanhSachHoaDonBan";
+            this.dtgvDanhSachHoaDonBan.ReadOnly = true;
             this.dtgvDanhSachHoaDonBan.Size = new System.Drawing.Size(509, 150);
             this.dtgvDanhSachHoaDonBan.TabIndex = 8;
             // 
@@ -247,6 +249,7 @@ namespace GUI.QuanTri
             this.Luong});
             this.dtgvDanhSachLuong.Location = new System.Drawing.Point(579, 100);
             this.dtgvDanhSachLuong.Name = "dtgvDanhSachLuong";
+            this.dtgvDanhSachLuong.ReadOnly = true;
             this.dtgvDanhSachLuong.Size = new System.Drawing.Size(448, 125);
             this.dtgvDanhSachLuong.TabIndex = 15;
             // 
@@ -290,6 +293,7 @@ namespace GUI.QuanTri
             this.cmbLuongNam.Name = "cmbLuongNam";
             this.cmbLuongNam.Size = new System.Drawing.Size(63, 21);
             this.cmbLuongNam.TabIndex = 18;
+            this.cmbLuongNam.SelectedIndexChanged += new System.EventHandler(this.cmbLuongNam_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -307,6 +311,7 @@ namespace GUI.QuanTri
             this.cmbLuongThang.Name = "cmbLuongThang";
             this.cmbLuongThang.Size = new System.Drawing.Size(45, 21);
             this.cmbLuongThang.TabIndex = 16;
+            this.cmbLuongThang.SelectedIndexChanged += new System.EventHandler(this.cmbLuongThang_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -342,6 +347,7 @@ namespace GUI.QuanTri
             this.MaSanPham,
             this.TenSanPham,
             this.SoLuong});
+            this.dtgvSanPhamBanChay.Enabled = false;
             this.dtgvSanPhamBanChay.Location = new System.Drawing.Point(28, 130);
             this.dtgvSanPhamBanChay.Name = "dtgvSanPhamBanChay";
             this.dtgvSanPhamBanChay.Size = new System.Drawing.Size(509, 52);

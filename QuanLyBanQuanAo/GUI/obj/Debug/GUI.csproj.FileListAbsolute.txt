@@ -497,7 +497,6 @@ F:\Download\Homework\ki7\LapTrinhWindow\BTL\Git-the\BTL_Windows\QuanLyBanQuanAo\
 F:\Download\Homework\ki7\LapTrinhWindow\BTL\Git-the\BTL_Windows\QuanLyBanQuanAo\GUI\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 F:\Download\Homework\ki7\LapTrinhWindow\BTL\Git-the\BTL_Windows\QuanLyBanQuanAo\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
 F:\Download\Homework\ki7\LapTrinhWindow\BTL\Git-the\BTL_Windows\QuanLyBanQuanAo\GUI\obj\Debug\GUI.frmDangNhap.resources
-F:\Download\Homework\ki7\LapTrinhWindow\BTL\Git-the\BTL_Windows\QuanLyBanQuanAo\GUI\obj\Debug\GUI.NhanVien.frmDoiMatKhau.resources
 F:\Download\Homework\ki7\LapTrinhWindow\BTL\Git-the\BTL_Windows\QuanLyBanQuanAo\GUI\obj\Debug\GUI.NhanVien.frmDoiMatKhauNhanVien.resources
 F:\Download\Homework\ki7\LapTrinhWindow\BTL\Git-the\BTL_Windows\QuanLyBanQuanAo\GUI\obj\Debug\GUI.NhanVien.frmInHoaDonBan.resources
 F:\Download\Homework\ki7\LapTrinhWindow\BTL\Git-the\BTL_Windows\QuanLyBanQuanAo\GUI\obj\Debug\GUI.frmNhanVien.resources
